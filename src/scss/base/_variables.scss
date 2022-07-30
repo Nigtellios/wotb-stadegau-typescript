@@ -2,12 +2,33 @@
  * Variables
 */
 
+/*
+ * Docs for Include Media: https://eduardoboucas.github.io/include-media/
+ *
+ * Example:
+ *
+ * @include media(">tablet", "<=52em") {
+ *  background-color: #bad;
+ * }
+*/
+@import "include-media/dist/_include-media.scss";
+
 /* Typography */
+$primary: 'Open Sans', sans-serif;
+$secondary: 'Merriweather', serif;
+
 /* Breakpoints */
-/* Paths */
-/* Grid setup */
+$breakpoints: (
+    sm: 36rem,
+    md: 48rem,
+    lg: 62rem,
+    xl: 75rem,
+    xxl: 87.5rem
+);
+
 /* Colour palette */
 $black: #000;
+$gray-dark: #222222;
 $white: #fff;
 $light-gray: #f1f1f1;
 
@@ -16,5 +37,3 @@ $foreground-color: #fff;
 $caption-color: #464646;
 $accent-color: #999;
 $link-color: #ec1f4e;
-
-/* Components */

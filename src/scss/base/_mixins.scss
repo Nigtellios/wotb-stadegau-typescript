@@ -1,6 +1,26 @@
 /**
  * Helper mixins
 */
+@use 'sass:math';
+
+/**
+ * Mixins for different values across website
+ */
+@function vw-size($s, $w: 1440) {
+  @return math.div($s, $w) * 100+vw;
+}
+
+@function rem($sizeValue: 16) {
+  @return $sizeValue * 0.1+rem;
+}
+
+@function rel($size, $rel) {
+  @return math.div($size, $rel);
+}
+
+@function em($size, $rel) {
+  @return rel($size, $rel) * 1em;
+}
 
 // Clearfix
 // http://www.cssmojo.com/latest_new_clearfix_so_far/
@@ -10,15 +30,6 @@
     clear: both;
     content: '';
     display: table;
-  }
-}
-
-// Media queries
-@mixin bp($point) {
-  @if $point == large {
-    @media (min-width: 1280px) { @content; }
-  } @else if $point == small {
-    @media (max-width: 1279px) { @content; }
   }
 }
 
