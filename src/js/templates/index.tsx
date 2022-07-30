@@ -1,2 +1,2 @@
 /* Template Files */
-import 'demo.tsx';
+import './demo.tsx';

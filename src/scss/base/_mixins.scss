@@ -10,8 +10,8 @@
   @return math.div($s, $w) * 100+vw;
 }
 
-@function rem($sizeValue: 16) {
-  @return $sizeValue * 0.1+rem;
+@function rem($input, $sizeValue: 16) {
+  @return math.div($input, $sizeValue) +rem;
 }
 
 @function rel($size, $rel) {
