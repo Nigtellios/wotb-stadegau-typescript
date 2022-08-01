@@ -1,4 +1,8 @@
-const demo = () => 'Webpack Boilerplate v5.14.0 - SASS/PostCSS, ES6/7, browser sync, source code listing and more.';
+type ConsoleMessage = {
+  type: string,
+  message: string,
+};
 
 // eslint-disable-next-line no-console
-console.log(demo());
+const defaultMessage = ({ type, message }: ConsoleMessage) => console.log(`${type}: ${message}`);
+defaultMessage({ type: 'Running', message: 'demo.tsx' });
