@@ -58,3 +58,17 @@
   ::-moz-placeholder          {@content}
   :-ms-input-placeholder      {@content}
 }
+
+@mixin flex(
+  $direction: column,
+  $wrap: nowrap,
+  $justify: center,
+  $align: center,
+  $items: center
+) {
+  display: flex;
+  flex-flow: $direction $wrap;
+  justify-content: $justify;
+  align-content: $align;
+  align-items: $items;
+}

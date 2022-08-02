@@ -1,0 +1,77 @@
+.app {
+    position: relative;
+    
+    &__home {
+        display: flex;
+        flex-flow: row wrap;
+        
+        &-dashboard {
+            width: 100%;
+            padding: 1rem;
+            
+            @include media('>=md') {
+                width: 50%;
+                padding: 2rem;
+            }
+            
+            @include media('>=xl') {
+                width: 33.33%;
+                padding: 3rem;
+            }
+        }
+        
+        &-content {
+            width: 100%;
+            padding: 1rem;
+    
+            @include media('>=md') {
+                width: 50%;
+                padding: 2rem;
+            }
+    
+            @include media('>=xl') {
+                width: 66.66%;
+                padding: 3rem;
+            }
+        }
+    }
+    
+    &__background {
+        position: fixed;
+        pointer-events: none;
+        overflow: hidden;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: -1;
+        
+        &:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba($black, .65);
+        }
+        
+        &-image {
+            width: 100%;
+            height: 100vh;
+            object-fit: cover;
+            filter: blur(.75rem);
+            transform: scale(1.05);
+        }
+    }
+    
+    &__sideboard {
+        @include flex(column, nowrap, flex-start, center, flex-start);
+        padding: 1rem;
+    }
+    
+    &__comparer {
+        padding: 1rem;
+        border: $content-border;
+    }
+}
