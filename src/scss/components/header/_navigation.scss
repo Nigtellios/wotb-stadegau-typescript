@@ -9,6 +9,25 @@
         &-link {
             font-family: $primary;
             font-size: 1.45rem;
+            position: relative;
+            
+            &:after {
+                position: absolute;
+                content: '';
+                width: 0;
+                opacity: 0;
+                height: .125rem;
+                margin-left: 1rem;
+                background-color: rgba($white, 1);
+                top: 50%;
+                transform: translateY(-50%);
+                transition: width .2s ease-in, opacity .2s ease-in;
+            }
+            
+            &:hover:after {
+                width: 2rem;
+                opacity: 1;
+            }
         }
     }
 }

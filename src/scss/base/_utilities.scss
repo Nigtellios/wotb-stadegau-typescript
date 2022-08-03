@@ -2,3 +2,24 @@
     opacity: 0;
     visibility: hidden;
 }
+
+.animated-line {
+    position: relative;
+    
+    &:after {
+        position: absolute;
+        bottom: -.25rem;
+        left: 0;
+        content: '';
+        width: 0;
+        opacity: 0;
+        height: .125rem;
+        background-color: rgba($white, 1);
+        transition: width .2s ease-in, opacity .2s ease-in;
+    }
+    
+    &:hover:after {
+        width: 100%;
+        opacity: 1;
+    }
+}
