@@ -79,10 +79,6 @@
     &__comparer {
         margin-top: 3rem;
         
-        @include media('>=lg') {
-            padding: 1rem;
-        }
-        
         @include media('>=md') {
             margin-top: 0;
         }

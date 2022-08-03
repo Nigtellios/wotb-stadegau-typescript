@@ -37,8 +37,12 @@ $foreground-color: #fff;
 $caption-color: #464646;
 $accent-color: #999;
 $link-color: #ec1f4e;
+$nasturcian-flower: #e84118;
 
 
 /* Border */
 $decorator-border: .0625rem solid rgba($white, .15);
-$content-border: .1875rem solid rgba($white, 1);
+$content-border: .125rem solid rgba($white, 1);
+
+/* Shadows */
+$default-shadow: .5rem .5rem 1.875rem -1.25rem rgba($black, 1);
