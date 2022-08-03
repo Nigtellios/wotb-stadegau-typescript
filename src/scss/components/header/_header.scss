@@ -1,0 +1,32 @@
+.main-header {
+    display: flex;
+    flex-flow: row nowrap;
+    width: 100%;
+    padding: 2rem;
+    
+    @include media('>=md') {
+        padding: 3rem;
+    }
+    
+    @include media('>=xl') {
+        padding: 4rem;
+    }
+
+    &__brand {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+
+        &-logotype {
+            height: 3rem;
+            width: 3rem;
+        }
+
+        &-title {
+            color: $white;
+            font-size: calc(2.5rem * .75);
+            margin-left: 1rem;
+            letter-spacing: .095rem;
+        }
+    }
+}

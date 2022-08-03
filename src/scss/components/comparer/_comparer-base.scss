@@ -1,0 +1,41 @@
+.comparer {
+    display: flex;
+    flex-flow: column nowrap;
+    
+    &__info-box {
+        margin-top: 1rem;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: flex-start;
+        opacity: .75;
+        
+        &-wrapper {
+            display: flex;
+            flex-flow: row wrap;
+            align-items: center;
+        }
+        
+        &-icon {
+            @include flex();
+            background: rgba($nasturcian-flower, 1);
+            width: 2rem;
+            height: 2rem;
+            box-shadow: $default-shadow;
+            
+            &-svg {
+                width: 1.5rem;
+                height: 1.5rem;
+            }
+        }
+        
+        &-content {
+            margin-left: .75rem;
+        }
+    }
+    
+    &__content {
+        margin-top: 2rem;
+        padding: 1rem;
+        border: $content-border;
+    }
+}

@@ -1,22 +1,174 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8">
     <title>Stadegau - WoTB Tank Comparison</title>
     <meta name="description" content="World of Tanks Blitz Tank Comparison - written in TypeScript.">
     <meta name="keywords" content="webpack, webpack-configuration, template, boilerplate, setup, html, css, sass, javascript">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Jakub Kowalski, Nigtellios">
-  </head>
-  <body>
-    <header>
+</head>
 
-    </header>
-    <main>
+<body>
+<div id="app" class="app">
+    <div class="app__wrapper">
+        <header class="main-header" role="banner">
+            <a href="/" class="main-header__brand">
+                <svg
+                    class="main-header__brand-logotype"
+                    viewBox="0 0 493 600"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <title>Stadegau</title>
+                    <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M245.268 0.000506867L245.27 0H245.266L245.268 0.000506867ZM245.268 0.000506867L0.0114746 58.2V212.001C0.0114746 386.717 89.7072 530.871 239.939 597.604L245.33 600L250.721 597.604C402.346 530.25 492.864 386.104 492.864 211.791L490.421 58.1614L245.268 0.000506867ZM147.812 344.196C153.416 362.684 170.426 375.356 189.75 375.437C212.277 375.431 231.117 358.326 233.286 335.91C235.454 313.494 220.242 293.097 198.134 288.775C176.025 284.454 154.249 297.622 147.812 319.203H121V344.196H147.812ZM171 331.7C171 321.348 179.395 312.955 189.75 312.955C200.105 312.955 208.5 321.348 208.5 331.7C208.5 342.052 200.105 350.444 189.75 350.444C179.395 350.444 171 342.052 171 331.7ZM246 344.196H371V319.203H246V344.196ZM258.714 260.932C260.883 283.348 279.723 300.453 302.25 300.459C321.574 300.378 338.584 287.706 344.188 269.218H371V244.225H344.188C337.751 222.644 315.975 209.476 293.866 213.797C271.758 218.118 256.546 238.516 258.714 260.932ZM283.5 256.722C283.5 246.369 291.895 237.977 302.25 237.977C312.605 237.977 321 246.369 321 256.722C321 267.074 312.605 275.466 302.25 275.466C291.895 275.466 283.5 267.074 283.5 256.722ZM121 269.218H246V244.225H121V269.218ZM171.214 185.954C173.383 208.369 192.223 225.475 214.75 225.481C234.072 225.396 251.081 212.725 256.688 194.24H371V169.247H256.688C250.251 147.665 228.475 134.497 206.366 138.819C184.258 143.14 169.046 163.538 171.214 185.954ZM196.028 181.435C196.196 171.214 204.525 163.013 214.75 162.999C225.105 162.999 233.5 171.391 233.5 181.743V182.718C232.968 192.927 224.353 200.827 214.134 200.477C203.914 200.127 195.86 191.656 196.028 181.435ZM121 194.24H158.5V169.247H121V194.24Z"
+                        fill="#F9F9F9"
+                    />
+                </svg>
 
-    </main>
-    <footer>
+                <h1 class="main-header__brand-title">
+                    Stadegau
+                </h1>
+            </a>
+        </header>
+        <div class="app__home">
+            <div class="app__home-dashboard">
+                <div class="app__sideboard">
+                    <nav
+                        class="main-navigation"
+                        aria-label="Stadegau - World of Tanks Blitz Tank Comparison"
+                    >
+                        <ul
+                            class="main-navigation__list"
+                            role="menubar"
+                            aria-label="Stadegau - World of Tanks Blitz Tank Comparison"
+                        >
+                            <li
+                                role="none"
+                                class="main-navigation__list-item"
+                            >
+                                <a
+                                    class="main-navigation__list-item-link"
+                                    role="menuitem"
+                                    href="#home"
+                                >
+                                    Compare
+                                </a>
+                            </li>
+                            <li
+                                role="none"
+                                class="main-navigation__list-item"
+                            >
+                                <a
+                                    class="main-navigation__list-item-link"
+                                    role="menuitem"
+                                    href="#credits"
+                                >
+                                    Credits
+                                </a>
+                            </li>
+                            <li
+                                role="none"
+                                class="main-navigation__list-item"
+                            >
+                                <a
+                                    class="main-navigation__list-item-link"
+                                    role="menuitem"
+                                    href="#other-projects"
+                                >
+                                    Other Projects
+                                </a>
+                            </li>
+                            <li
+                                role="none"
+                                class="main-navigation__list-item"
+                            >
+                                <a
+                                    class="main-navigation__list-item-link"
+                                    role="menuitem"
+                                    href="#contact"
+                                >
+                                    Contact
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <footer class="main-footer">
+                    <div class="main-footer__credits">
+                        ©
+                        <span class="comparer__info-box-date">
+                            <span class="hidden">Current Date</span>
+                        </span>
+                        <a href="https://github.com/Nigtellios">
+                            Nigtellios
+                        </a>
+                    </div>
+                </footer>
+            </div>
+            <div class="app__home-content">
+                <main class="app__comparer">
+                    <div class="comparer">
+                        <div class="comparer__searchbar form">
+                            <label class="form__label" for="search">
+                                Search for tank
+                            </label>
+                            <input
+                                class="form__input"
+                                type="text"
+                                name="search"
+                                id="search"
+                                placeholder="Search for tanks..."
+                            />
+                        </div>
+                        <div class="comparer__info-box">
+                            <div class="comparer__info-box-wrapper">
+                                <div class="comparer__info-box-icon">
+                                    <svg class="comparer__info-box-icon-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M12 22C10.8954 22 10 21.1046 10 20H14C14 21.1046 13.1046 22 12 22ZM20 19H4V17L6 16V10.5C6 7.038 7.421 4.793 10 4.18V2H13C12.3479 2.86394 11.9967 3.91762 12 5C12 5.25138 12.0187 5.50241 12.056 5.751H12C10.7799 5.67197 9.60301 6.21765 8.875 7.2C8.25255 8.18456 7.94714 9.33638 8 10.5V17H16V10.5C16 10.289 15.993 10.086 15.979 9.9C16.6405 10.0366 17.3226 10.039 17.985 9.907C17.996 10.118 18 10.319 18 10.507V16L20 17V19ZM17 8C16.3958 8.00073 15.8055 7.81839 15.307 7.477C14.1288 6.67158 13.6811 5.14761 14.2365 3.8329C14.7919 2.5182 16.1966 1.77678 17.5954 2.06004C18.9942 2.34329 19.9998 3.5728 20 5C20 6.65685 18.6569 8 17 8Z" fill="black"/>
+                                    </svg>
+                                </div>
+                                <p class="comparer__info-box-content">
+                                    You can search for any tank from World of Tank Blitz which you want. You're able to compare the same tank with different fields. Data is updated automatically after each game update.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="comparer__content">
 
-    </footer>
-  </body>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </div>
+
+    <div class="app__background">
+        <img
+            class="app__background-image"
+            src="../images/background-july.jpg"
+            alt="Website Background"
+        />
+    </div>
+
+    <div class="homepage__decorator">
+        <span aria-hidden="true" role="none" class="homepage__decorator--top-left">
+            <span class="hidden">Decorator</span>
+        </span>
+        <span aria-hidden="true" role="none" class="homepage__decorator--top-mid">
+            <span class="hidden">Decorator</span>
+        </span>
+        <span aria-hidden="true" role="none" class="homepage__decorator--top-right">
+            <span class="hidden">Decorator</span>
+        </span>
+        <span aria-hidden="true" role="none" class="homepage__decorator--bottom-left">
+            <span class="hidden">Decorator</span>
+        </span>
+        <span aria-hidden="true" role="none" class="homepage__decorator--bottom-right">
+            <span class="hidden">Decorator</span>
+        </span>
+    </div>
+</div>
+</body>
 </html>

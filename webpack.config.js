@@ -28,7 +28,7 @@ const htmlPluginEntries = templateFiles.map((template) => new HTMLWebpackPlugin(
 
 module.exports = {
   entry: {
-    app: path.resolve(environment.paths.source, 'js', 'app.tsx'),
+    app: path.resolve(environment.paths.source, 'js', 'app.ts'),
   },
   output: {
     filename: 'js/[name].js',
@@ -41,7 +41,7 @@ module.exports = {
         use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'sass-loader'],
       },
       {
-        test: /\.tsx$/,
+        test: /\.ts$/,
         exclude: /node_modules/,
         use: ['babel-loader'],
       },
@@ -70,7 +70,7 @@ module.exports = {
         },
       },
       {
-        test: /\.tsx?$/,
+        test: /\.ts?$/,
         use: 'ts-loader',
         exclude: /node_modules/,
       },
@@ -121,21 +121,21 @@ module.exports = {
     new CopyWebpackPlugin({
       patterns: [
         {
-          from: path.resolve(environment.paths.source, 'images', 'content'),
-          to: path.resolve(environment.paths.output, 'images', 'content'),
+          from: path.resolve(environment.paths.source, 'images'),
+          to: path.resolve(environment.paths.output, 'images'),
           toType: 'dir',
           globOptions: {
             ignore: ['*.DS_Store', 'Thumbs.db'],
           },
         },
-        {
-          from: path.resolve(environment.paths.source, 'videos'),
-          to: path.resolve(environment.paths.output, 'videos'),
-          toType: 'dir',
-          globOptions: {
-            ignore: ['*.DS_Store', 'Thumbs.db'],
-          },
-        },
+        // {
+        //   from: path.resolve(environment.paths.source, 'videos'),
+        //   to: path.resolve(environment.paths.output, 'videos'),
+        //   toType: 'dir',
+        //   globOptions: {
+        //     ignore: ['*.DS_Store', 'Thumbs.db'],
+        //   },
+        // },
       ],
     }),
   ].concat(htmlPluginEntries),

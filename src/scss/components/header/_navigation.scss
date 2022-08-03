@@ -1,0 +1,14 @@
+.main-navigation {
+    &__list {
+        list-style: none;
+    }
+    
+    &__list-item {
+        margin-bottom: 1rem;
+        
+        &-link {
+            font-family: $primary;
+            font-size: 1.45rem;
+        }
+    }
+}

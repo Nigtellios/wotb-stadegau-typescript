@@ -1,0 +1,24 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: $white;
+    font-family: $secondary;
+    font-style: normal;
+}
+
+body,
+a {
+    color: $white;
+    font-family: $primary;
+}
+
+h1 {
+    font-size: calc(2.5rem * .75);
+    
+    @include media('>=xl') {
+        font-size: 2.5rem;
+    }
+}
