@@ -5,7 +5,7 @@ import '../scss/app.scss';
 // I will need to memoize data https://www.npmjs.com/package/p-memoize
 
 /* Components JS */
-import './components/index.tsx';
+import './components';
 
 /* Templates JS */
-import './templates/index.tsx';
+import './templates/index.ts';

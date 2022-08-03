@@ -1,1 +1,2 @@
 /* Components Files */
+import './comparer';

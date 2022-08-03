@@ -4,6 +4,9 @@
     
     &__info-box {
         margin-top: 1rem;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: flex-start;
     }
     
     &__content {
