@@ -1,6 +1,16 @@
 .main-header {
     display: flex;
     flex-flow: row nowrap;
+    width: 100%;
+    padding: 2rem;
+    
+    @include media('>=md') {
+        padding: 3rem;
+    }
+    
+    @include media('>=xl') {
+        padding: 4rem;
+    }
 
     &__brand {
         display: flex;
