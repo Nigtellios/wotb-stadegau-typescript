@@ -15,7 +15,7 @@
         opacity: 0;
         height: .125rem;
         background-color: rgba($white, 1);
-        transition: width .2s ease-in, opacity .2s ease-in;
+        transition: width .2s ease-in, opacity .1s ease-in;
     }
     
     &:hover:after {
