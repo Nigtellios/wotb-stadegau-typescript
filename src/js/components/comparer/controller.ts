@@ -1,4 +1,5 @@
 import insertCurrentDate from '../../helpers/utilities';
+import FetchTanksListBuilder from './classes/FetchTanksListBuilder';
 
 /* Load Functionalities after DOM Content is Loaded */
 document.addEventListener('DOMContentLoaded', () => {
@@ -10,6 +11,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   comparerSearchBar.addEventListener('keyup', (e) => {
     const searchString = (e.target as HTMLInputElement).value;
-    console.log(searchString);
+    console.log(`Search Query: ${searchString}`);
   });
 });
+
+const test = new FetchTanksListBuilder();
+const data = test.build();
+console.log(data);
