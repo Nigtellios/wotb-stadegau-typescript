@@ -9,7 +9,7 @@ export default class FetchTanksListBuilder {
   protected url: string;
 
   constructor(
-    public fields?: Array<string>,
+    public fields: Array<string>,
   ) {
     this.fields = fields;
 
@@ -24,10 +24,14 @@ export default class FetchTanksListBuilder {
       'Content-Type': 'application/json',
     });
 
-    this.url = `https://${this.parameters.server}/${this.parameters.api_name}/${this.parameters.method_block}/${this.parameters.method_name}/?application_id=${appID}&${this.fields}`;
+    this.url = `https://${this.parameters.server}/${this.parameters.api_name}/${this.parameters.method_block}/${this.parameters.method_name}/?application_id=${appID}`;
+
+    if (this.fields.length !== 0) {
+      this.url += `&fields=${this.fields.join('%2C+')}`;
+    }
   }
 
-  async build() {
+  public async build() {
     try {
       const fetchResponse = await fetch(this.url);
 
@@ -36,7 +40,8 @@ export default class FetchTanksListBuilder {
       }
 
       const tanksCollection = await fetchResponse.json();
-      return tanksCollection;
+      const data = [tanksCollection.data];
+      return data;
     } catch (error) {
       throw new Error((<Error>error).message);
     }
