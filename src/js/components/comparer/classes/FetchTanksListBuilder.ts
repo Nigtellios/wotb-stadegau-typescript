@@ -1,16 +1,5 @@
 import appID from '../../../config/secret';
-
-interface ApiOptions {
-  server: 'api.wotblitz.eu';
-  api_name: 'wotb';
-  method_block: 'encyclopedia' | 'clans' | 'account';
-  method_name: 'vehicles' | 'vehicleprofile' | 'modules' | 'provisions' | 'info' | 'achievements' | 'crewskills' | 'vehicleprofiles' | 'list';
-  tank_id?: number;
-  name?: string;
-  fields?: Array<string>;
-  language?: 'en' | 'pl';
-  order_by?: string;
-}
+import { ApiOptions } from '../interfaces/ApiOptions';
 
 export default class FetchTanksListBuilder {
   protected parameters: ApiOptions;
@@ -19,7 +8,11 @@ export default class FetchTanksListBuilder {
 
   protected url: string;
 
-  constructor() {
+  constructor(
+    public fields?: Array<string>,
+  ) {
+    this.fields = fields;
+
     this.parameters = {
       server: 'api.wotblitz.eu',
       api_name: 'wotb',
@@ -31,12 +24,21 @@ export default class FetchTanksListBuilder {
       'Content-Type': 'application/json',
     });
 
-    this.url = `https://${this.parameters.server}/${this.parameters.api_name}/${this.parameters.method_block}/${this.parameters.method_name}/?application_id=${appID}`;
+    this.url = `https://${this.parameters.server}/${this.parameters.api_name}/${this.parameters.method_block}/${this.parameters.method_name}/?application_id=${appID}&${this.fields}`;
   }
 
   async build() {
-    const responseBody = await fetch(this.url);
-    const dataObject = await responseBody.json();
-    return dataObject;
+    try {
+      const fetchResponse = await fetch(this.url);
+
+      if (!fetchResponse.ok) {
+        throw new Error(`Fetch Error: ${fetchResponse.status}`);
+      }
+
+      const tanksCollection = await fetchResponse.json();
+      return tanksCollection;
+    } catch (error) {
+      throw new Error((<Error>error).message);
+    }
   }
 }
