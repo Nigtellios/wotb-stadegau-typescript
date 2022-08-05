@@ -1,34 +1,31 @@
 import config from '../../../config/config';
-import { ApiOptions } from '../interfaces/ApiOptions';
 
 export default class FetchTanksListBuilder {
-  protected parameters: ApiOptions;
-  protected url: string;
+  protected url?: string;
 
   constructor(
-    public fields: Array<string> = ['tank_id', 'images.preview', 'name', 'nation', 'tier', 'type'],
+    public fields: string[] = ['tank_id', 'images.preview', 'name', 'nation', 'tier', 'type'],
     public methodBlock: string = 'encyclopedia',
     public methodName: string = 'vehicles',
   ) {
     this.fields = fields;
     this.methodBlock = methodBlock;
     this.methodName = methodName;
-
-    this.parameters = {
-      method_block: 'encyclopedia',
-      method_name: 'vehicles',
-    };
-
-    this.url = `${config.baseURL}/${this.parameters.method_block}/${this.parameters.method_name}/?application_id=${config.appID}`;
-
-    if (this.fields.length !== 0) {
-      this.url += `&fields=${this.fields.join('%2C+')}`;
-    }
+    this.buildUrl();
   }
 
-  public async build() {
+  public buildUrl() {
+    this.url = `${config.baseURL}/${this.methodBlock}/${this.methodName}/?application_id=${config.appID}`;
+  }
+
+  public getUrlParameters(fields: string[]) {
+    if (!fields) return '';
+    return fields.join('%2C+');
+  }
+
+  public async buildFetch(fieldsParameters: string[] = this.fields) {
     try {
-      const fetchResponse = await fetch(this.url);
+      const fetchResponse = await fetch(`${this.url}&fields=${this.getUrlParameters(fieldsParameters)}`);
 
       if (!fetchResponse.ok) {
         throw new Error(`Fetch Error: ${fetchResponse.status}`);
@@ -36,7 +33,7 @@ export default class FetchTanksListBuilder {
 
       return await fetchResponse.json();
     } catch (error) {
-      throw new Error((<Error>error).message);
+      throw new Error((error as Error).message);
     }
   }
 }

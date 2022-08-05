@@ -1,2 +1,2 @@
 /* Template Files */
-import './demo.ts';
+import './homepage.ts';
