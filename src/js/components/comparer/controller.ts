@@ -9,12 +9,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
   infoBoxDate.textContent = `${insertCurrentDate()}, `;
 
-  const fetchTanksList = new FetchTanksListBuilder(['tank_id', 'images.preview', 'name', 'nation', 'tier', 'type']);
+  const fetchTanksList = new FetchTanksListBuilder();
   const tanksCollection = fetchTanksList.build();
 
-  tanksCollection.then((result) => {
-    console.log(result);
-  });
+  const getList = () => {
+    tanksCollection.then((data) => {
+      const tanks = data.data;
+      console.log(tanks);
+      return tanks;
+    });
+  };
+
+  const collection = getList();
+  console.log(collection);
 
   comparerSearchBar.addEventListener('keyup', (e) => {
     const searchString = (e.target as HTMLInputElement).value;
