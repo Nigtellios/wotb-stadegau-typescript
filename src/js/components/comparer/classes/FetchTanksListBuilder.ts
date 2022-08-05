@@ -3,24 +3,21 @@ import { ApiOptions } from '../interfaces/ApiOptions';
 
 export default class FetchTanksListBuilder {
   protected parameters: ApiOptions;
-
-  protected headers: Headers;
-
   protected url: string;
 
   constructor(
     public fields: Array<string> = ['tank_id', 'images.preview', 'name', 'nation', 'tier', 'type'],
+    public methodBlock: string = 'encyclopedia',
+    public methodName: string = 'vehicles',
   ) {
     this.fields = fields;
+    this.methodBlock = methodBlock;
+    this.methodName = methodName;
 
     this.parameters = {
       method_block: 'encyclopedia',
       method_name: 'vehicles',
     };
-
-    this.headers = new Headers({
-      'Content-Type': 'application/json',
-    });
 
     this.url = `${config.baseURL}/${this.parameters.method_block}/${this.parameters.method_name}/?application_id=${config.appID}`;
 

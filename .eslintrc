@@ -23,6 +23,7 @@
   ],
   "rules": {
     "@typescript-eslint/no-use-before-define": "off",
+    "@typescript-eslint/lines-between-class-members": "off",
     "no-use-before-define": 0,
     "func-names": 0,
     "prefer-arrow-callback": 0,
