@@ -5,7 +5,7 @@ export default class BuildTanksList {
   public tanksList: object[];
   public errorMessage: string;
   protected tanksStorage: Storage;
-  protected tanksFromStorage: object[];
+  public tanksFromStorage: object[];
 
   constructor() {
     this.fetchTanksListInstance = new FetchTanksListBuilder();
@@ -35,7 +35,5 @@ export default class BuildTanksList {
     }
 
     this.tanksFromStorage = [JSON.parse(this.tanksStorage.getItem('tanksCollection') || '[]')];
-
-    console.log(this.tanksFromStorage);
   }
 }
