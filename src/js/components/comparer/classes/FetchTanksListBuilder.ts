@@ -27,6 +27,7 @@ export default class FetchTanksListBuilder {
     try {
       const fetchResponse = await fetch(`${this.url}&fields=${this.getUrlParameters(fieldsParameters)}`);
 
+      // TODO - Add more advanced error handling
       if (!fetchResponse.ok) {
         throw new Error(`Fetch Error: ${fetchResponse.status}`);
       }

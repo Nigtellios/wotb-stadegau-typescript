@@ -16,6 +16,7 @@ export default class SearchBar {
     await list.init();
     this.storedTanksList = list.tanksFromStorage;
 
+    // TODO - Build List with Filtration, create HTML Element for list and render it inside of it, but render only some of the results (not all)
     this.searchBarElement.addEventListener('keyup', (e: KeyboardEvent) => {
       this.searchValue = (e.target as HTMLInputElement).value;
       console.log(this.searchValue);
